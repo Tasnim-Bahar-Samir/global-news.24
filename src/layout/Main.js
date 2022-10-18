@@ -1,18 +1,20 @@
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { Outlet } from 'react-router-dom'
+import Header from '../Shared/Header/Header'
+import Categories from '../Shared/LeftSideNav/Categories/Categories'
 
 const Main = () => {
   return (
     <div>
+      <Header></Header>
         <Container>
             <Row>
-                <Col lg='2'>
-                left
+                <Col lg='3'>
+                  <Categories/>
                 </Col>
-                <Col lg='7'>
+                <Col lg='6'>
                     <Outlet/>
-                middle
                 </Col>
                 <Col lg= '3'>
                 right
