@@ -1,9 +1,29 @@
 import React from 'react'
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+
 
 const Header = () => {
   return (
-    <div>
-        <h2>This is Header</h2>
+    <div className='mb-3'>
+   <Navbar bg="light" expand="md" className='border-bottom border-secondary'>
+      <Container>
+        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav
+            className=" my-2 my-lg-0 ms-auto w"
+            style={{ maxHeight: '100px' }}
+            navbarScroll
+          >
+            <Nav.Link href="#action1">News</Nav.Link>
+            <Nav.Link href="#action2">Blog</Nav.Link> 
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+
     </div>
   )
 }

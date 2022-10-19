@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 import { Outlet } from 'react-router-dom'
 import Header from '../Shared/Header/Header'
 import Categories from '../Shared/LeftSideNav/Categories/Categories'
+import RightSideNav from '../Shared/RightSideNav/RightSideNav'
 
 const Main = () => {
   return (
@@ -10,14 +11,14 @@ const Main = () => {
       <Header></Header>
         <Container>
             <Row>
-                <Col lg='3'>
+                <Col md='3'>
                   <Categories/>
                 </Col>
-                <Col lg='6'>
+                <Col md='6'>
                     <Outlet/>
                 </Col>
-                <Col lg= '3'>
-                right
+                <Col md= '3'>
+                  <RightSideNav/>
                 </Col>
             </Row>
         </Container>
