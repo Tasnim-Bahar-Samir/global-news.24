@@ -1,4 +1,8 @@
 .App {
   background-color: ghostwhite;
 }
+*{
+  margin: 0;
+  padding: 0;
+}
 
