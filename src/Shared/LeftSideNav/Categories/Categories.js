@@ -10,7 +10,7 @@ const Categories = () => {
     },[])
     console.log(categories)
   return (
-    <div>
+    <div className='left-nav'>
         <h3>All Categories: {categories.length}</h3>
         {
             categories.map(category => <p key={category.id}>

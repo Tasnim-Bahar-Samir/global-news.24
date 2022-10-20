@@ -17,7 +17,7 @@ const Header = () => {
   }
   console.log(user)
   return (
-    <div className='mb-3'>
+    <div className='mb-3 header'>
    <Navbar bg="light" expand="md" className='border-bottom border-secondary'>
       <Container>
         <Navbar.Brand ><Link to='/'>Global-News.24</Link></Navbar.Brand>

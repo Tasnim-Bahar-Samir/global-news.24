@@ -10,13 +10,13 @@ const Main = () => {
     <div>
         <Container>
             <Row>
-                <Col md='3'>
+                <Col md='3' >
                   <Categories/>
                 </Col>
                 <Col md='6'>
                     <Outlet/>
                 </Col>
-                <Col md= '3'>
+                <Col md= '3' >
                   <RightSideNav/>
                 </Col>
             </Row>

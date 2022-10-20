@@ -1,3 +1,10 @@
 .App{
     background-color: ghostwhite;
 }
+.header{
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1111;
+}
+

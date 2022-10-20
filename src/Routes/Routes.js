@@ -3,6 +3,7 @@ import Main from "../layout/Main";
 import Primary from "../layout/Primary";
 import CategoryNews from "../Pages/CategoryData/CategoryNews";
 import Home from "../Pages/Home/Home";
+import Register from "../Pages/Home/Register/Register";
 import Login from "../Pages/Login/Login";
 
 export const router= createBrowserRouter([
@@ -30,6 +31,10 @@ export const router= createBrowserRouter([
         {
             path:'/login',
             element:<Login/>
+        },
+        {
+            path:'/register',
+            element:<Register/>
         }
        ]
     }
