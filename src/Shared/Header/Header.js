@@ -15,7 +15,6 @@ const Header = () => {
     .then(result => {})
     .catch(err => console.error(err))
   }
-  console.log(user)
   return (
     <div className='mb-3 header'>
    <Navbar bg="light" expand="md" className='border-bottom border-secondary'>

@@ -1,8 +1,12 @@
 import React, { useContext } from 'react'
 import { Button, Form } from 'react-bootstrap'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { authContext } from '../../Contexts/AuthContext'
 
 const Login = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
   const {emailSignIn} = useContext(authContext)
   const handleSignIn = (e) => {
     e.preventDefault()
@@ -14,6 +18,8 @@ const Login = () => {
         .then(result => {
           const user = result.user;
           console.log(user)
+          navigate(from, {replace:true})
+
         })
         .catch(err => console.error(err))
   }
@@ -28,7 +34,6 @@ const Login = () => {
           We'll never share your email with anyone else.
         </Form.Text>
       </Form.Group>
-
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
         <Form.Control type="password" name='password' placeholder="Password" />
