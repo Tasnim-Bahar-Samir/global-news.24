@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Image } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -9,7 +9,12 @@ import {FaUserAlt} from 'react-icons/fa'
 
 
 const Header = () => {
-  const {user} = useContext(authContext)
+  const {user,userSignOut} = useContext(authContext)
+  const handleSignOut = ()=>{
+    userSignOut()
+    .then(result => {})
+    .catch(err => console.error(err))
+  }
   console.log(user)
   return (
     <div className='mb-3'>
@@ -25,7 +30,9 @@ const Header = () => {
           >
             <Nav.Link href="#action1">News</Nav.Link>
             <Nav.Link href="#action2">Blog</Nav.Link> 
-            <div className='ms-auto d-flex'>
+            {
+              user?.uid?
+              <div className='ms-auto d-flex'>
               <Nav.Link href='#action3'>
               {
                 user?.photoURL? <Image style={{height:'20px'}} roundedCircle src={user.photoURL}></Image>
@@ -34,7 +41,13 @@ const Header = () => {
               }
               </Nav.Link>
               <Nav.Link href="#action4" >{user?.displayName}</Nav.Link>  
-            </div> 
+              <Button onClick={handleSignOut}>Logout</Button>
+            </div> :
+            <div className='ms-auto'>
+              <Link to='/login'>Login</Link>
+              <Link to='/register'>Register</Link>
+            </div>
+            }
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -8,7 +8,6 @@ import RightSideNav from '../Shared/RightSideNav/RightSideNav'
 const Main = () => {
   return (
     <div>
-      <Header></Header>
         <Container>
             <Row>
                 <Col md='3'>
