@@ -1,9 +1,12 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { authContext } from '../../../Contexts/AuthContext';
 
 const Register = () => {
-    const {emailSignUp} = useContext(authContext)
+    const {emailSignUp,userProfileUpdate} = useContext
+    (authContext)
+    const [accept,setAccept] = useState(false);
     const handleRegister = (e)=>{
         e.preventDefault()
         const form = e.target;
@@ -12,11 +15,16 @@ const Register = () => {
         const password = form.password.value;
         console.log(name,email,password)
         emailSignUp(email,password)
-        .then(result => {
-            const user = result.user;
-            console.log(user);
+        .then(() => {
+            handleProfileUpdate(name)  
         })
         .catch(e => console.error(e))
+    }
+    const handleProfileUpdate = (name) =>{
+      const profile = {displayName:name};
+      userProfileUpdate(profile)
+      .then(() =>{}) 
+      .catch(e => console.error(e))
     }
   return (
     <div className='container mt-5 border border-secondary rounded p-5'>
@@ -28,9 +36,7 @@ const Register = () => {
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" name='email' placeholder="Enter email" required/>
-        <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text>
+       
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -38,9 +44,11 @@ const Register = () => {
         <Form.Control type="password" name='password' placeholder="Password" required/>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
+        <Form.Check type="checkbox" 
+          onClick={()=>setAccept(!accept)}
+          label={<>Accept all <Link to='/terms'>terms and conditions.</Link></>} />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button disabled={!accept} variant="primary" type="submit">
         Register
       </Button>
     </Form>

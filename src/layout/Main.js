@@ -1,7 +1,6 @@
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { Outlet } from 'react-router-dom'
-import Header from '../Shared/Header/Header'
 import Categories from '../Shared/LeftSideNav/Categories/Categories'
 import RightSideNav from '../Shared/RightSideNav/RightSideNav'
 
